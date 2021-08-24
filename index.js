@@ -1,16 +1,12 @@
-let baseUrl = `https://restcountries.eu/rest/v2/name/Australia`;
-
-let httpOptions = {
-  method: "GET",
-};
+let url = `https://restcountries.eu/rest/v2/name/Australia`;
 
 function waitForData(res) {
   return res.json();
 }
 
 function handleData(data) {
-  let pop = data[0].manipulation;
-  console.log(`${pop}`);
+  let pop = data[0].population;
+  console.log(`The population of Australia is ${pop}`);
 }
 
-fetch(baseUrl, httpOptions).then(waitForData).then(handleData);
+fetch(url, { method: "GET" }).then(waitForData).then(handleData);
