@@ -1,7 +1,16 @@
-// Working with APIs
-// We need to answer the following question
-// what is the endpoint(url)
-// What query string/parameteres do we need to provide
-// what are required parameters
-// what optional paramaeters do we want to add
-console.log(hello);
+let baseUrl = `https://restcountries.eu/rest/v2/name/Australia`;
+
+let httpOptions = {
+  method: "GET",
+};
+
+function waitForData(res) {
+  return res.json();
+}
+
+function handleData(data) {
+  let pop = data[0].manipulation;
+  console.log(`${pop}`);
+}
+
+fetch(baseUrl, httpOptions).then(waitForData).then(handleData);
